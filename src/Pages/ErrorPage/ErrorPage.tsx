@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, StyledButton, StyledSubTitle, StyledTitle } from "./styles";
-
 const ErrorPage: React.FC = () => {
   const navigate = useNavigate();
 
