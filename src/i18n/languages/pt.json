@@ -1,21 +1,23 @@
 {
   "translation": {
     "Hello i am": "Olá, eu sou",
-    "Alexandre Loiola": "Alexandre Loiola",
+    "Alexandre Loiola": "Alexandre Loiola.",
     "Systems Analyst - Fullstack Developer": "Analista de Sistemas - Desenvolvedor Fullstack",
     "I work as a Fullstack Developer (Backend-Heavy), with a degree in Systems Analysis and Development from the Federal Institute of Sergipe - IFS. I am a dedicated professional and passionate about technology, always in search of new challenges.": "Atuo como Desenvolvedor Fullstack (Backend-Heavy), com a formação em Análise e Desenvolvimento de Sistemas pelo Instituto Federal de Sergipe - IFS. Sou um profissional dedicado e apaixonado por tecnologia e sempre estou em busca de novos desafios.",
     "My Projects": "Meus Projetos",
     "Get in Touch": "Converse Comigo",
     "Developed by": "Desenvolvido por",
-    "About": "Sibre",
+    "About": "Sobre",
     "Portfolio": "Portfólio",
     "Contact": "Contato",
     "Brief": "Resumo",
     "Let's talk! Feel free to get in touch.": "Vamos conversar! Sinta-se a vontade para entrar em contato.",
-    "Your Name": "Seu Nome",
-    "Your LastName": "Seu Sobrenome",
+    "Your E-mail": "Seu E-mail",
     "Subject": "Assunto",
     "Message": "Mensagem",
-    "Send": "ENVIAR"
+    "Send": "ENVIAR",
+    "Todos": "Todos",
+    "Gerenciamento de pedidos": "Gerenciamento de Pedidos",
+    "Pagamentos simplificados": "Pagamentos simplificados"
   }
 }
