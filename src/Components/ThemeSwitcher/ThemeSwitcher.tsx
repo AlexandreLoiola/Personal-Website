@@ -5,7 +5,7 @@ interface IProps {
   themeToggler: () => void;
 }
 
-const ChangeThemeToggler: React.FC<IProps> = ({ themeToggler }) => {
+const ThemeSwitcher: React.FC<IProps> = ({ themeToggler }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleChangeToggle = () => {
@@ -20,4 +20,4 @@ const ChangeThemeToggler: React.FC<IProps> = ({ themeToggler }) => {
   );
 };
 
-export default ChangeThemeToggler;
+export default ThemeSwitcher;
