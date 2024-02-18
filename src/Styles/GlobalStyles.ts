@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Button } from "react-bootstrap";
+import { Button, ButtonProps } from "react-bootstrap";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const PrimaryButton = styled(Button)`
+export const PrimaryButton = styled(Button as React.FC<ButtonProps>)`
   background-color: ${(props) => props.theme.secundary};
   border: 1px solid transparent;
   color: ${(props) => props.theme.primary};
@@ -34,6 +34,16 @@ export const PrimaryButton = styled(Button)`
     color: ${(props) => props.theme.secundary};
     border-color: ${(props) => props.theme.secundary};
   }
+  &:active {
+    background-color: ${(props) => props.theme.primary} !important;
+    color: ${(props) => props.theme.secundary} !important;
+    border-color: ${(props) => props.theme.secundary};
+  }
+  &:focus-visible {
+    background-color: ${(props) => props.theme.primary} !important;
+    color: ${(props) => props.theme.secundary} !important;
+    border-color: ${(props) => props.theme.secundary};
+  }
 `;
 
 export const secundaryButton = styled(PrimaryButton)`
@@ -45,6 +55,18 @@ export const secundaryButton = styled(PrimaryButton)`
     background-color: ${(props) => props.theme.secundary};
     border: 1px solid ${(props) => props.theme.primary};
     color: ${(props) => props.theme.primary};
+  }
+
+  &:active {
+    background-color: ${(props) => props.theme.secundary} !important;
+    border: 1px solid ${(props) => props.theme.primary} !important;
+    color: ${(props) => props.theme.primary}  !important;
+  }
+
+  &:focus-visible {
+    background-color: ${(props) => props.theme.secundary} !important;
+    border: 1px solid ${(props) => props.theme.primary}  !important;
+    color: ${(props) => props.theme.primary} !important;
   }
 `;
 
