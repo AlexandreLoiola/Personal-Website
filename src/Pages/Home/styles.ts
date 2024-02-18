@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { PrimaryButton, secundaryButton } from "../../Styles/GlobalStyles";
-import { ButtonProps } from "react-bootstrap";
 
 export const Container = styled.div`
   display: flex;
@@ -53,11 +52,11 @@ export const StyledSpan = styled.span`
   font-family: Arial, Helvetica, sans-serif;
 `;
 
-export const StyledPrimaryButton = styled(PrimaryButton as React.FC<ButtonProps>)`
+export const StyledPrimaryButton = styled(PrimaryButton)`
   width: 150px;
 `;
 
-export const StyledSecundaryButton = styled(secundaryButton as React.FC<ButtonProps>)`
+export const StyledSecundaryButton = styled(secundaryButton)`
   width: 150px;
 `;
 

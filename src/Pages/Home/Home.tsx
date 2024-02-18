@@ -11,6 +11,7 @@ import {
 } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Home: React.FC = () => {
           {t("Get in Touch")}
         </StyledSecundaryButton>
       </StyledContainerButton>
+      <Footer />
     </Container>
   );
 };
