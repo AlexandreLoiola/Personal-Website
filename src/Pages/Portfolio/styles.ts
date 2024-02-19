@@ -12,9 +12,11 @@ export const StyledPost = styled.div<IPostProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 225px;
-  margin: 50px;
+  width: ${(props) =>
+    props.theme.deviceType === "mobile" ? "320px" : "400px"};
+  height: ${(props) =>
+    props.theme.deviceType === "mobile" ? "180px" : "225px"};
+  margin: 50px 0;
   border-radius: 4px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,8 +28,9 @@ export const StyledPost = styled.div<IPostProps>`
   &::before {
     content: ${(props) => (props.$title ? `"${props.$title}"` : '"Novo Post"')};
     margin: auto;
-    margin-top: 270px;
-    font-size: 20px;
+    margin-top: 240px;
+    font-size: ${(props) =>
+      props.theme.deviceType === "mobile" ? "16px" : "20px"};
     font-weight: 500;
     display: flex;
     width: 100%;
@@ -67,7 +70,7 @@ export const StyledCategoriesContainer = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  width: 80%;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "80%")};
   margin-top: 2vh;
 `;
 
@@ -77,7 +80,8 @@ export const StyledTagCategory = styled.div`
   flex-shrink: 0;
   border-radius: 4px;
   background: ${(props) => props.theme.secundary};
-  margin: 10px 22px;
+  margin: ${(props) =>
+    props.theme.deviceType === "mobile" ? "8px 10px" : "10px 22px"};
   padding: 0px 16px;
   display: flex;
   align-items: center;
@@ -85,7 +89,8 @@ export const StyledTagCategory = styled.div`
   cursor: pointer;
   transition: transform 0.3s ease 0s;
   color: ${(props) => props.theme.primary};
-  font-size: 18px;
+  font-size: ${(props) =>
+    props.theme.deviceType === "mobile" ? "16px" : "18px"};
   font-weight: 500;
 
   &:hover {

@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
-    margin: 20px 200px;
+    margin: ${(props) => props.theme.deviceType === 'mobile' ? '20px' : '20px 200px'};
     padding: 0; 
     background-color: ${(props) => props.theme.primary};
   }

@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const StledContainer = styled.div`
   display: flex;
+  margin-top: ${(props) =>
+    props.theme.deviceType === "mobile" ? "26px" : "10px"};
   bottom: 3vh;
-  left: 42vw;
-  position: fixed;
+  left: ${(props) => (props.theme.deviceType === "mobile" ? "16vw" : "42vw")};
+  position: ${(props) =>
+    props.theme.deviceType === "mobile" ? "unset !important" : "fixed"};
 `;
 
 export const StyledSpan = styled.span`

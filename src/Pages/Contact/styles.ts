@@ -2,19 +2,20 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(props) =>
+    props.theme.deviceType === "mobile" ? "column" : "row"};
   align-items: center;
   margin-top: 4vh;
 `;
 
 export const StyledRightContainer = styled.div`
-  width: 45%;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "45%")};
 `;
 
 export const StyledLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "55%")};
 `;
 
 export const StyledTitleName = styled.h1`
