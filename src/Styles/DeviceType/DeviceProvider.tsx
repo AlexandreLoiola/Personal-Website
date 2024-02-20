@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { useDeviceType } from "./useDeviceType";
 import { ThemeProvider } from "styled-components";
 

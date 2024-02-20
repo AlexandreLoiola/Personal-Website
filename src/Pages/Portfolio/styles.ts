@@ -16,7 +16,8 @@ export const StyledPost = styled.div<IPostProps>`
     props.theme.deviceType === "mobile" ? "320px" : "400px"};
   height: ${(props) =>
     props.theme.deviceType === "mobile" ? "180px" : "225px"};
-  margin: 50px 0;
+  margin: ${(props) =>
+    props.theme.deviceType === "mobile" ? "50px 0" : "50px"};
   border-radius: 4px;
   background-size: cover;
   background-repeat: no-repeat;
