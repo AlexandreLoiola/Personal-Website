@@ -29,7 +29,8 @@ export const StyledPost = styled.div<IPostProps>`
   &::before {
     content: ${(props) => (props.$title ? `"${props.$title}"` : '"Novo Post"')};
     margin: auto;
-    margin-top: 240px;
+    margin-top: ${(props) =>
+      props.theme.deviceType === "mobile" ? "240px" : "280px"};
     font-size: ${(props) =>
       props.theme.deviceType === "mobile" ? "16px" : "20px"};
     font-weight: 500;
