@@ -7,14 +7,13 @@ import {
   StyledTitleName,
   StyledLeftContainer,
   StyledRightContainer,
-  StyledSuccessServerResponse,
-  StyledSErrorServerResponse,
 } from "./styles";
 import { useTranslation } from "react-i18next";
 import TextForm from "../../Components/forms/TextInput";
 import { FormContainer, StyledFormButton } from "../../Components/forms/styles";
 import axios from "axios";
 import Footer from "../../Components/Footer/Footer";
+import { Button, Modal } from "react-bootstrap";
 
 interface IForm {
   email: string;
@@ -27,14 +26,20 @@ const Contact: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-  const [successServerMessage, setSuccessServerMessage] = useState<string>("");
-  const [errorServerMessage, setErrorServerMessage] = useState<string>("");
+  const [serverMessage, setServerMessage] = useState<string>("");
+  const [modalShow, setModalShow] = useState(false);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleSubmit = async () => {
-    setSuccessServerMessage("");
-    setErrorServerMessage("");
+    setServerMessage("");
     if (!email || !subject || !message) {
-      setErrorServerMessage("Todos os campos devem ser preenchidos.");
+      setServerMessage("Por favor, preenchea todos os campos.");
+      setModalShow(true);
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      setServerMessage("Por favor, insira um e-mail válido.");
+      setModalShow(true);
       return;
     }
     const formData: IForm = {
@@ -50,14 +55,18 @@ const Contact: React.FC = () => {
         )
         .then((response) => {
           console.log(response);
-          setSuccessServerMessage(response.data.message);
           setEmail("");
           setSubject("");
           setMessage("");
+          setServerMessage(
+            "E-mail enviado com sucesso! Em breve, enviarei uma resposta para sua mensagem."
+          );
+          setModalShow(true);
         })
         .catch((response) => {
           console.error(response);
-          setErrorServerMessage(response.data.message);
+          setServerMessage(response.data.message);
+          setModalShow(true);
         });
     } catch (error) {
       console.error("Houve um erro ao enviar a mensagem", error);
@@ -80,16 +89,6 @@ const Contact: React.FC = () => {
       </StyledLeftContainer>
       <StyledRightContainer>
         <FormContainer onSubmit={handleSubmit}>
-          <div>
-            <StyledSuccessServerResponse>
-              {successServerMessage}
-            </StyledSuccessServerResponse>
-          </div>
-          <div>
-            <StyledSErrorServerResponse>
-              {errorServerMessage}
-            </StyledSErrorServerResponse>
-          </div>
           <TextForm
             label={""}
             placeHolder={t("Your E-mail")}
@@ -116,6 +115,22 @@ const Contact: React.FC = () => {
             {t("Send")}
           </StyledFormButton>
         </FormContainer>
+        <Modal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Mensagem do Servidor
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{serverMessage && <p>{serverMessage}</p>}</Modal.Body>
+          <Modal.Footer>
+            <Button onClick={() => setModalShow(false)}>Fechar</Button>
+          </Modal.Footer>
+        </Modal>
       </StyledRightContainer>
       <Footer />
     </StyledContainer>

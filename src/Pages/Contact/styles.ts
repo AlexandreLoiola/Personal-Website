@@ -53,15 +53,3 @@ export const StyledItemList = styled.li`
   line-height: normal;
   margin: 10px 0px;
 `;
-
-export const StyledSuccessServerResponse = styled.span`
-  font-size: 18px;
-  color: green;
-  font-weight: 600px;
-`;
-
-export const StyledSErrorServerResponse = styled.span`
-  font-size: 20px;
-  color: red;
-  font-weight: 800px;
-`;
