@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const IconDiv = styled.div`
   background: ${(props) => props.color};
-  color: ${(props) => props.theme.primary};
+  color: white;
   height: 50px;
   width: 50px;
   display: flex;
