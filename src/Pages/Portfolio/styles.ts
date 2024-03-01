@@ -28,6 +28,7 @@ export const StyledPost = styled.div<IPostProps>`
 
   &::before {
     content: ${(props) => (props.$title ? `"${props.$title}"` : '"Novo Post"')};
+    color: ${(props) => props.theme.tertiary};
     margin: auto;
     margin-top: ${(props) =>
       props.theme.deviceType === "mobile" ? "240px" : "280px"};

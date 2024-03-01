@@ -1,5 +1,5 @@
 import { PrimaryButton, secundaryButton } from "../../Styles/GlobalStyles";
-import LogoImage from "../../assets/AlexandreLoiola-logo.jpg";
+import LogoImage from "../../assets/AlexandreLoiola-logo.webp";
 import styled from "styled-components";
 import Navbar from "react-bootstrap/Navbar";
 import { Nav, Offcanvas } from "react-bootstrap";

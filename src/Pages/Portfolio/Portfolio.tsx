@@ -29,6 +29,7 @@ interface IPost {
   link_source_code: string;
   link_documentation: string;
   presentation_video: string;
+  technical_sheet: string;
 }
 
 const Portfolio: React.FC = () => {
@@ -117,6 +118,7 @@ const Portfolio: React.FC = () => {
                   link_source_code: post.link_source_code,
                   link_documentation: post.link_documentation,
                   presentation_video: post.presentation_video,
+                  technical_sheet: post.technical_sheet
                 },
               })
             }

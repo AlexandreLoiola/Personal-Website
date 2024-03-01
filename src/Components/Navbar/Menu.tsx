@@ -13,13 +13,26 @@ import {
   StyledMobileButton,
 } from "./styles";
 import SocialMobile from "../Social/SocialMobile";
+import briefEn from "../../assets/Alexandre_Loiola_CV.pdf";
+import briefPt from "../../assets/CV_Alexadre_Loiola.pdf"
 
 function Menu() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleBriefClick = () => {
+    const currentLanguage = i18n.language;
+
+    if (currentLanguage === "pt") {
+      window.open(briefPt);
+    } else {
+      window.open(briefEn);
+    }
+
+  };
 
   return (
     <StyledNavbar expand="xl" className="bg-body-tertiary">
@@ -39,7 +52,9 @@ function Menu() {
                 {t("Portfolio")}
               </StyledItemMenu>
               <StyledItemMenu href="/contact">{t("Contact")}</StyledItemMenu>
-              <StyledButton>{t("Brief")}</StyledButton>
+              <StyledButton onClick={handleBriefClick}>
+                {t("Brief")}
+              </StyledButton>
             </Nav>
           </Navbar.Collapse>
         </Row>
@@ -54,7 +69,7 @@ function Menu() {
             <StyledNavLink href="/portfolio">{t("Portfolio")}</StyledNavLink>
             <StyledNavLink href="/contact">{t("Contact")}</StyledNavLink>
             <StyledMobileButton>{t("Brief")}</StyledMobileButton>
-            <SocialMobile/>
+            <SocialMobile />
           </Nav>
         </Offcanvas.Body>
       </StyledOffcanvas>
