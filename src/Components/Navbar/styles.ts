@@ -7,8 +7,9 @@ import { Nav, Offcanvas } from "react-bootstrap";
 export const StyledLogo = styled.img.attrs({
   src: LogoImage,
 })`
-  width: 100px;
-  height: 100px;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "70px" : "100px")};
+  height: ${(props) =>
+    props.theme.deviceType === "mobile" ? "70px" : "100px"};
   border-radius: 100px;
 `;
 export const StyledButton = styled(secundaryButton)`

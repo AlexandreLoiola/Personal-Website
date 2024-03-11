@@ -4,7 +4,7 @@ import { PrimaryButton } from "../../Styles/GlobalStyles";
 
 export const StyledBreadcrumb = styled(Breadcrumb)`
   font-size: ${(props) =>
-    props.theme.deviceType === "mobile" ? "14px" : "18px"};
+    props.theme.deviceType === "mobile" ? "13px" : "18px"};
   .breadcrumb-item.active,
   .breadcrumb-item.active::before {
     color: ${(props) => props.theme.tertiary};
@@ -19,7 +19,7 @@ export const StyledCarousel = styled(Carousel)`
   display: flex;
   justify-content: center;
   padding: ${(props) =>
-    props.theme.deviceType === "mobile" ? "40px 0 50px 0" : "space-0 80px "};
+    props.theme.deviceType === "mobile" ? "40px 0 50px 0" : "0 120px "};
 
   .carousel-control-prev,
   .carousel-control-next {
@@ -103,6 +103,21 @@ export const StyledSubTitle = styled.h2`
   color: ${(props) => props.theme.tertiary};
   margin-top: 4vh;
   font-family: Mada;
+  padding-left: ${(props) =>
+    props.theme.deviceType === "mobile" ? "0" : "28px"};
+`;
+
+export const StyledTitleDescription = styled.span`
+  color: ${(props) => props.theme.secundary};
+  font-size: 18px;
+  font-weight: 500;
+  padding-right: ${(props) =>
+    props.theme.deviceType === "mobile" ? "0" : "40px"};
+  display: flex;
+  padding-left: ${(props) =>
+    props.theme.deviceType === "mobile" ? "0" : "40px"};
+  text-align: justify;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "80%")};
 `;
 
 export const StyledDescription = styled.span`
@@ -110,16 +125,17 @@ export const StyledDescription = styled.span`
   font-size: 18px;
   font-weight: 500;
   padding-right: ${(props) =>
-    props.theme.deviceType === "mobile" ? "0" : "100px"};
+    props.theme.deviceType === "mobile" ? "0" : "40px"};
   display: flex;
   padding-left: ${(props) =>
-    props.theme.deviceType === "mobile" ? "0" : "20px"};
+    props.theme.deviceType === "mobile" ? "0" : "40px"};
   text-align: justify;
-  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "80%")};
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "100%" : "100%")};
 `;
 
 export const StyledTabs = styled(Tabs)`
   margin-top: 4vh;
+  margin: 50px 80px 0 80px;
 
   .nav-link {
     color: ${(props) => props.theme.tertiary};
@@ -136,7 +152,7 @@ export const StyledTabs = styled(Tabs)`
 export const StyledTab = styled(Tab)`
   color: #333;
   font-size: 1.2em;
-  margin: 10px 0;
+  margin: 20px 80px;
   display: none;
 
   &.active {

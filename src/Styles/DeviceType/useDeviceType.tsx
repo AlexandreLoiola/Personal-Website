@@ -27,7 +27,7 @@ export const useDeviceType = () => {
     return () => {
       window.removeEventListener('resize', checkDeviceType);
     };
-  }, [deviceType]);
+  }, []);
 
   return deviceType;
 };

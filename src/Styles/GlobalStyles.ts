@@ -12,9 +12,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .tab-content {
-    min-height: 400px;
-    min-height: 400px;
-    padding: 0 20px;
+    min-height: 200px;
+    min-height: 240px;
+    border-bottom: 1px solid white;
+    margin: 0 82px;
+    margin-bottom: 30px;
   }
 
   .nav-tabs {

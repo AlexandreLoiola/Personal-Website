@@ -13,6 +13,7 @@ export const StyledFormLabel = styled(Form.Label)`
 `;
 
 export const StyledFormControl = styled(Form.Control)`
+  margin: 0;
   font-size: 1rem;
   background-color: ${(props) => props.theme.primary};
   padding: 0.5rem 1rem;

@@ -21,7 +21,7 @@ export const StyledSubTitle = styled.h2`
   font-size: 40px;
   margin-top: 1vh;
   margin-bottom: 5vh;
-
+  text-align: center;
 `;
 
 export const StyledButton = styled(Button as React.FC<ButtonProps>)``;

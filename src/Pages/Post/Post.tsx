@@ -14,7 +14,8 @@ import {
   StyledTabs,
   StyledTab,
   StyledLi,
-  StyledButtonContainer
+  StyledButtonContainer,
+  StyledTitleDescription,
 } from "./styles";
 import Footer from "../../Components/Footer/Footer";
 
@@ -39,11 +40,11 @@ const Post: React.FC = () => {
       </StyledBreadcrumb>
       <StyledContainerInformation>
         <StyledTitle>{t(postTitle)}</StyledTitle>
-        <StyledDescription>
+        <StyledTitleDescription>
           {"\u00A0\u00A0\u00A0"}
           {t(postShortDescription)}
-        </StyledDescription>
-        <StyledButtonContainer >
+        </StyledTitleDescription>
+        <StyledButtonContainer>
           <StyledButton onClick={() => window.open(postLinkSourceCode)}>
             {t("View Source Code")}
           </StyledButton>

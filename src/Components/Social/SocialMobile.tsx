@@ -11,7 +11,7 @@ const MobileIconDiv = styled.div`
   align-items: center;
   justify-content: center;
   margin: 10px;
-  margin-top: 180px;
+  margin-top: 10px;
   border-radius: 100px;
 `;
 

@@ -14,7 +14,8 @@ import {
 } from "./styles";
 import SocialMobile from "../Social/SocialMobile";
 import briefEn from "../../assets/Alexandre_Loiola_CV.pdf";
-import briefPt from "../../assets/CV_Alexadre_Loiola.pdf"
+import briefPt from "../../assets/CV_Alexadre_Loiola.pdf";
+import { useDeviceType } from "../../Styles/DeviceType/useDeviceType";
 
 function Menu() {
   const { t, i18n } = useTranslation();
@@ -31,7 +32,6 @@ function Menu() {
     } else {
       window.open(briefEn);
     }
-
   };
 
   return (
@@ -43,21 +43,27 @@ function Menu() {
           </Navbar.Brand>
           <LanguageSwitcher />
         </Row>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleShow} />
-        <Row>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <StyledItemMenu href="/">{t("About")}</StyledItemMenu>
-              <StyledItemMenu href="/portfolio">
-                {t("Portfolio")}
-              </StyledItemMenu>
-              <StyledItemMenu href="/contact">{t("Contact")}</StyledItemMenu>
-              <StyledButton onClick={handleBriefClick}>
-                {t("Brief")}
-              </StyledButton>
-            </Nav>
-          </Navbar.Collapse>
-        </Row>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={handleShow}
+          className="d-md-none"
+        />
+        {useDeviceType() === "desktop" && (
+          <Row>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <StyledItemMenu href="/">{t("About")}</StyledItemMenu>
+                <StyledItemMenu href="/portfolio">
+                  {t("Portfolio")}
+                </StyledItemMenu>
+                <StyledItemMenu href="/contact">{t("Contact")}</StyledItemMenu>
+                <StyledButton onClick={handleBriefClick}>
+                  {t("Brief")}
+                </StyledButton>
+              </Nav>
+            </Navbar.Collapse>
+          </Row>
+        )}
       </Container>
       <StyledOffcanvas show={show} onHide={handleClose} placement="end">
         <StyledOffcanvasHeader closeButton>
@@ -68,7 +74,9 @@ function Menu() {
             <StyledNavLink href="/">{t("About")}</StyledNavLink>
             <StyledNavLink href="/portfolio">{t("Portfolio")}</StyledNavLink>
             <StyledNavLink href="/contact">{t("Contact")}</StyledNavLink>
-            <StyledMobileButton>{t("Brief")}</StyledMobileButton>
+            <StyledMobileButton onClick={handleBriefClick}>
+              {t("Brief")}
+            </StyledMobileButton>
             <SocialMobile />
           </Nav>
         </Offcanvas.Body>
