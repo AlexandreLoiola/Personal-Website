@@ -5,9 +5,23 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     flex-direction: column;
-    margin: 20px 200px;
+    margin: ${(props) =>
+      props.theme.deviceType === "mobile" ? "20px" : "20px 200px"};
     padding: 0; 
     background-color: ${(props) => props.theme.primary};
+  }
+
+  .tab-content {
+    min-height: 200px;
+    min-height: 240px;
+    border-bottom: 1px solid white;
+    margin: 0 82px;
+    margin-bottom: 30px;
+  }
+
+  .nav-tabs {
+    padding-bottom: 1px;
+    border-color: ${(props) => props.theme.tertiary};
   }
 `;
 
@@ -60,12 +74,12 @@ export const secundaryButton = styled(PrimaryButton)`
   &:active {
     background-color: ${(props) => props.theme.secundary} !important;
     border: 1px solid ${(props) => props.theme.primary} !important;
-    color: ${(props) => props.theme.primary}  !important;
+    color: ${(props) => props.theme.primary} !important;
   }
 
   &:focus-visible {
     background-color: ${(props) => props.theme.secundary} !important;
-    border: 1px solid ${(props) => props.theme.primary}  !important;
+    border: 1px solid ${(props) => props.theme.primary} !important;
     color: ${(props) => props.theme.primary} !important;
   }
 `;

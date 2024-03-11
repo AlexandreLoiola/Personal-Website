@@ -1,14 +1,15 @@
-import { secundaryButton } from "../../Styles/GlobalStyles";
-import LogoImage from "../../assets/AlexandreLoiola-logo.jpg";
+import { PrimaryButton, secundaryButton } from "../../Styles/GlobalStyles";
+import LogoImage from "../../assets/AlexandreLoiola-logo.webp";
 import styled from "styled-components";
 import Navbar from "react-bootstrap/Navbar";
-import { Nav } from "react-bootstrap";
+import { Nav, Offcanvas } from "react-bootstrap";
 
 export const StyledLogo = styled.img.attrs({
   src: LogoImage,
 })`
-  width: 100px;
-  height: 100px;
+  width: ${(props) => (props.theme.deviceType === "mobile" ? "70px" : "100px")};
+  height: ${(props) =>
+    props.theme.deviceType === "mobile" ? "70px" : "100px"};
   border-radius: 100px;
 `;
 export const StyledButton = styled(secundaryButton)`
@@ -35,4 +36,35 @@ export const StyledItemMenu = styled(Nav.Link)`
     color: ${(props) => props.theme.tertiary};
     text-decoration: underline;
   }
+`;
+
+export const StyledOffcanvas = styled(Offcanvas)`
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  --bs-offcanvas-width: 80%;
+`;
+
+export const StyledOffcanvasHeader = styled(Offcanvas.Header)`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30vw;
+`;
+
+export const StyledNavLink = styled(StyledItemMenu)`
+  display: flex;
+  align-items: center;
+  padding: 2vh 0;
+  padding-left: 10vw;
+  font-size: 24px;
+  font-weight: 500;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin-bottom: -1px;
+`;
+
+export const StyledMobileButton = styled(PrimaryButton)`
+  width: 100%;
+  margin: 2vh 0;
+  font-size: 20px;
+  padding: 26px 0px;
 `;

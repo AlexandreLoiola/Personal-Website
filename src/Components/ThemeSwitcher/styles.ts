@@ -19,6 +19,21 @@ export const StyledToggler = styled.div`
   cursor: pointer;
 `;
 
+export const StyledTogglerMobile = styled.div`
+  width: 90px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: ${(props) => props.theme.primary};
+  border: 2px solid ${(props) => props.theme.toggle};
+
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+`;
+
 const fadeIn = keyframes`
   0% {
     opacity: 0;

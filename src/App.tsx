@@ -8,6 +8,9 @@ import { darkTheme } from "./Styles/Themes/darkTheme";
 import { lightTheme } from "./Styles/Themes/lightTheme";
 import ChangeThemeToggler from "./Components/ThemeSwitcher/ThemeSwitcher";
 import Header from "./Components/Header/Header";
+import { DeviceTypeProvider } from "./Styles/DeviceType/DeviceProvider";
+import Social from "./Components/Social/Social";
+import { useDeviceType } from "./Styles/DeviceType/useDeviceType";
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -27,15 +30,17 @@ const App: React.FC = () => {
     localTheme && setTheme(localTheme);
   }, []);
 
-
   return (
     <div className="App">
-      <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-        <GlobalStyle />
-        <Header />
-        <Outlet />
-        <ChangeThemeToggler themeToggler={themeToggler} />
-      </ThemeProvider>
+      <DeviceTypeProvider>
+        <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+          <GlobalStyle />
+          <Header />
+          <Outlet />
+          {useDeviceType() === "desktop" && <ChangeThemeToggler themeToggler={themeToggler} />}
+          {useDeviceType() === "desktop" && <Social />}
+        </ThemeProvider>
+      </DeviceTypeProvider>
     </div>
   );
 };

@@ -4,8 +4,10 @@ import { PrimaryButton, secundaryButton } from "../../Styles/GlobalStyles";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 50vw;
-  margin-top: 10vh;
+  max-width: ${(props) =>
+    props.theme.deviceType === "mobile" ? "100%" : "50vw"};
+  margin-top: ${(props) =>
+    props.theme.deviceType === "mobile" ? "1vh" : "10vh"};
 `;
 
 export const StyledOverLine = styled.span`
@@ -21,7 +23,8 @@ export const StyledOverLine = styled.span`
 
 export const StyledTitleName = styled.h1`
   font-family: Montserrat;
-  font-size: 78px;
+  font-size: ${(props) =>
+    props.theme.deviceType === "mobile" ? "56px" : "78px"};
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -33,7 +36,8 @@ export const StyledTitleName = styled.h1`
 
 export const StyledSubTitleName = styled.span`
   font-family: Mada;
-  font-size: 36px;
+  font-size: ${(props) =>
+    props.theme.deviceType === "mobile" ? "28px" : "36px"};
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -46,7 +50,8 @@ export const StyledSpan = styled.span`
   font-weight: 500;
   line-height: normal;
   margin: 20px 0;
-  max-width: 44vw;
+  max-width: ${(props) =>
+    props.theme.deviceType === "mobile" ? "100%" : "44vw"};
   text-align: justify;
   color: ${(props) => props.theme.tertiary};
   font-family: Arial, Helvetica, sans-serif;

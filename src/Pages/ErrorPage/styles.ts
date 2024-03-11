@@ -16,11 +16,12 @@ export const StyledTitle = styled.h1`
 `;
 
 export const StyledSubTitle = styled.h2`
-  color: "#000";
+  color: ${(props) => props.theme.primary};
   font-weight: 400;
   font-size: 40px;
   margin-top: 1vh;
   margin-bottom: 5vh;
+  text-align: center;
 `;
 
 export const StyledButton = styled(Button as React.FC<ButtonProps>)``;

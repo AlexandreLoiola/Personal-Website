@@ -10,6 +10,7 @@ import {
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import Footer from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 interface ICategory {
   id: number;
@@ -21,12 +22,21 @@ interface IPost {
   title: { rendered: string };
   featured_media: number;
   cover_image?: string;
+  slug: string;
+  short_description: string;
+  long_description: string;
+  galery_images: string;
+  link_source_code: string;
+  link_documentation: string;
+  presentation_video: string;
+  technical_sheet: string;
 }
 
 const Portfolio: React.FC = () => {
   const { t } = useTranslation();
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [posts, setPosts] = useState<IPost[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     handleFetchCategories();
@@ -61,6 +71,7 @@ const Portfolio: React.FC = () => {
       )
       .then((response) => {
         const posts = response.data;
+        console.log(response.data);
         const postsWithMedia = posts.map(async (post: IPost) => {
           const media = await axios.get(
             `https://alexandreloiolabackend.galatus.com.br/wp-json/wp/v2/media/${post.featured_media}`
@@ -97,6 +108,20 @@ const Portfolio: React.FC = () => {
             key={post.id}
             $imageurl={post.cover_image}
             $title={t(post.title.rendered)}
+            onClick={() =>
+              navigate(`/post/${post.slug}`, {
+                state: {
+                  title: post.title.rendered,
+                  short_description: post.short_description,
+                  long_description: post.long_description,
+                  galery_images: post.galery_images,
+                  link_source_code: post.link_source_code,
+                  link_documentation: post.link_documentation,
+                  presentation_video: post.presentation_video,
+                  technical_sheet: post.technical_sheet
+                },
+              })
+            }
           />
         ))}
       </StyledContainerPosts>
