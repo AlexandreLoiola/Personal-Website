@@ -161,10 +161,16 @@ export const StyledTab = styled(Tab)`
   }
 `;
 
+export const StyledUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 export const StyledLi = styled.li`
   color: ${(props) => props.theme.secundary};
   font-size: 22px;
   padding: 6px;
+  padding-right: 100px;
   font-weight: 500;
 
   &::marker {

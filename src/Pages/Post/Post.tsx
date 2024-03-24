@@ -16,6 +16,7 @@ import {
   StyledLi,
   StyledButtonContainer,
   StyledTitleDescription,
+  StyledUl,
 } from "./styles";
 import Footer from "../../Components/Footer/Footer";
 
@@ -86,11 +87,11 @@ const Post: React.FC = () => {
         </StyledTab>
         <StyledTab eventKey="technicalSheet" title={t("Technical Sheet")}>
           <StyledSubTitle>{t("Technical Sheet")}</StyledSubTitle>
-          <ul>
+          <StyledUl>
             {postTechnicalSheet.map((item: string, index: number) => (
               <StyledLi key={index}>{t(item)}</StyledLi>
             ))}
-          </ul>
+          </StyledUl>
         </StyledTab>
         <StyledTab eventKey="documentation" title={t("Documentation")}>
           <StyledSubTitle>{t("Documentation")}</StyledSubTitle>
